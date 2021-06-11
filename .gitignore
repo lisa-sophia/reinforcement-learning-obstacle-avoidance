@@ -1,2 +1,6 @@
 TODO
 .vscode/
+*/training_results/*.json
+*/training_results/intermediate*
+*/training_results/rewards*
+*/training_results/final*
