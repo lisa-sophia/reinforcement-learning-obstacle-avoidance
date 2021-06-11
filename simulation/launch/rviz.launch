@@ -1,0 +1,3 @@
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simulation)/config/config.rviz" output="screen"/>
+</launch>

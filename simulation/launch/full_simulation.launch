@@ -1,0 +1,89 @@
+<launch>
+
+  <arg name="world" default="corridor_small"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find simulation)/worlds/$(arg world).world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/> 
+    <arg name="debug" value="false"/>
+    <arg name="headless" value="true"/>
+  </include>
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find simulation)/maps/$(arg world).yaml" />
+
+  <include file="$(find simulation)/launch/rviz.launch"/>
+
+  <!-- model possibilites: burger, waffle, waffle_pi -->
+  <arg name="model" default="waffle"/>
+  <arg name="agent"  default="agent"/>
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+  
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro"/>
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" respawn="false"
+    args="-urdf -model $(arg agent) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -Y $(arg yaw) -param robot_description" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+      <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+  <include file="$(find turtlebot3_navigation)/launch/amcl.launch"/>
+
+
+  <group ns="actor_1">
+    <node pkg="actor" type="simulate_actor.py" name="simulate_actor" output="screen">
+        <param name="namespace" type="string" value="actor_1" />
+        <param name="colour" type="string" value="red" />
+        <param name="start_x" type="double" value="2.5" />
+        <param name="start_y" type="double" value="1.6" />
+        <param name="start_yaw" type="double" value="-1.57" />
+        <param name="goal_x" type="double" value="2.5" />
+        <param name="goal_y" type="double" value="-1.6" />
+    </node>
+  </group>
+
+  <group ns="actor_2">
+    <node pkg="actor" type="simulate_actor.py" name="simulate_actor" output="screen">
+        <param name="namespace" type="string" value="actor_2" />
+        <param name="colour" type="string" value="blue" />
+        <param name="speed" type="string" value="fast" />
+        <param name="start_x" type="double" value="3.5" />
+        <param name="start_y" type="double" value="-1.6" />
+        <param name="start_yaw" type="double" value="1.57" />
+        <param name="goal_x" type="double" value="3.5" />
+        <param name="goal_y" type="double" value="1.6" />
+    </node>
+  </group>
+
+  <group ns="actor_3">
+    <node pkg="actor" type="simulate_actor.py" name="simulate_actor" output="screen">
+        <param name="namespace" type="string" value="actor_3" />
+        <param name="colour" type="string" value="green" />
+        <param name="speed" type="string" value="slow" />
+        <param name="start_x" type="double" value="8.2" />
+        <param name="start_y" type="double" value="1.6" />
+        <param name="start_yaw" type="double" value="-1.57" />
+        <param name="goal_x" type="double" value="8.2" />
+        <param name="goal_y" type="double" value="-1.6" />
+    </node>
+  </group>
+
+  <group ns="actor_4">
+    <node pkg="actor" type="simulate_actor.py" name="simulate_actor" output="screen">
+        <param name="namespace" type="string" value="actor_4" />
+        <param name="start_x" type="double" value="7.2" />
+        <param name="start_y" type="double" value="-1.6" />
+        <param name="start_yaw" type="double" value="1.57" />
+        <param name="goal_x" type="double" value="7.2" />
+        <param name="goal_y" type="double" value="1.6" />
+    </node>
+  </group>
+
+  <node pkg="actor" type="collect_actor_topics.py" name="collect_actor_topics" output="screen"/>
+
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="rosservice" type="rosservice" name="global_loc" args="call --wait /rviz/set_logger_level '{logger: ros, level: error}'" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simulation)/config/config_qlearning.rviz" output="screen"/>
+</launch>
