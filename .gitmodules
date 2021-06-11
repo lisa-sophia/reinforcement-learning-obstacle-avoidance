@@ -1,0 +1,6 @@
+[submodule "openai_ros"]
+	path = openai_ros
+	url = https://bitbucket.org/theconstructcore/openai_ros.git
+[submodule "turtlebot3"]
+	path = turtlebot3
+	url = https://github.com/ROBOTIS-GIT/turtlebot3.git
