@@ -12,7 +12,6 @@ from openai_ros.openai_ros_common import StartOpenAI_ROS_Environment
 from functools import reduce
 import os
 
-
 if __name__ == '__main__':
 
     rospy.init_node('turtlebot3_pedestrians_qlearn', anonymous=True, log_level=rospy.WARN)
@@ -38,7 +37,7 @@ if __name__ == '__main__':
     # Loads parameters from the ROS param server
     # Parameters are stored in a yaml file inside the config directory
     # They are loaded at runtime by the launch file
-    Alpha = rospy.get_param("/turtlebot3/alpha")
+    Alpha = rospy.get_param("/turtlebot3/max_alpha")
     Epsilon = rospy.get_param("/turtlebot3/epsilon")
     Gamma = rospy.get_param("/turtlebot3/gamma")
     epsilon_discount = rospy.get_param("/turtlebot3/epsilon_discount")
@@ -48,16 +47,23 @@ if __name__ == '__main__':
     max_alpha = rospy.get_param("/turtlebot3/max_alpha")
 
     running_step = rospy.get_param("/turtlebot3/running_step")
+    continue_prev_training = rospy.get_param("/turtlebot3/continue_prev_training")
 
-    complete_file_name = os.path.join(outdir, "rewards.txt")
-    f = open(complete_file_name, "w+")
-    f.write("")
-    f.close()
+    # overwrite rewards.txt only if we start training from scratch
+    if not continue_prev_training:
+        complete_file_name = os.path.join(outdir, "rewards.txt")
+        f = open(complete_file_name, "w+")
+        f.write("")
+        f.close()
+        complete_file_name = os.path.join(outdir, "log_output.txt")
+        f = open(complete_file_name, "w+")
+        f.write("")
+        f.close()
 
     # Initialises the algorithm that we are going to use for learning
     qlearn = qlearn.QLearn(actions=range(env.action_space.n),
-                           alpha=Alpha, gamma=Gamma, epsilon=Epsilon
-                           , use_q_table=True, file_dir=outdir)
+                           alpha=Alpha, gamma=Gamma, epsilon=Epsilon, 
+                           use_q_table=continue_prev_training, file_dir=outdir)
     initial_epsilon = qlearn.epsilon
 
     start_time = time.time()
@@ -136,6 +142,14 @@ if __name__ == '__main__':
         complete_file_name = os.path.join(outdir, "rewards.txt")
         f = open(complete_file_name, "a+")
         f.write("%f\r\n" % (cumulated_reward))
+        f.close()
+
+        # save log output in file
+        complete_file_name = os.path.join(outdir, "log_output.txt")
+        f = open(complete_file_name, "a+")
+        f.write(("EP: " + str(x + 1) + " - [alpha: " + str(round(qlearn.alpha, 2)) + " - gamma: " + str(
+                round(qlearn.gamma, 2)) + " - epsilon: " + str(round(qlearn.epsilon, 2)) + "] - Reward: " + str(
+                cumulated_reward) + "     Time: %d:%02d:%02d" % (h, m, s) + "\n"))
         f.close()
 
         qlearn.saveQToFile(outdir, file_name="intermediate_q_table.pkl")

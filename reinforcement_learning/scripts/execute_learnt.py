@@ -10,7 +10,7 @@ import rospy
 import rospkg
 from openai_ros.openai_ros_common import StartOpenAI_ROS_Environment
 from functools import reduce
-
+import os
 
 if __name__ == '__main__':
 
@@ -36,34 +36,39 @@ if __name__ == '__main__':
     # Loads parameters from the ROS param server
     # Parameters are stored in a yaml file inside the config directory
     # They are loaded at runtime by the launch file
-    Alpha   = 0.0
     Epsilon = 0.0
-    Gamma   = 0.0
-    epsilon_discount = 0.0
-    nepisodes = 1
+    Alpha   = rospy.get_param("/turtlebot3/min_alpha")
+    Gamma   = rospy.get_param("/turtlebot3/gamma")
+    nepisodes = rospy.get_param("/turtlebot3/nepisodes_execution")
     nsteps    = rospy.get_param("/turtlebot3/nsteps")
     
     # Initialises the algorithm that we are going to use for learning
     qlearn = qlearn.QLearn(actions=range(env.action_space.n),
                            alpha=Alpha, gamma=Gamma, epsilon=Epsilon,
                            use_q_table=True, file_dir=outdir)
-    initial_epsilon = qlearn.epsilon
 
     start_time = time.time()
     highest_reward = 0
 
+    # store the rewards to see how often we succeeded
+    complete_file_name = os.path.join(outdir, "rewards_execution.txt")
+    f = open(complete_file_name, "w+")
+    f.write("")
+    f.close()
+
     # Starts the main training loop: the one about the episodes to do
     for x in range(nepisodes):
+        start_time_episode = time.time()
         rospy.logdebug("############### START EPISODE=>" + str(x))
 
         cumulated_reward = 0
         done = False
-        if qlearn.epsilon > 0.05:
-            qlearn.epsilon *= epsilon_discount
 
         # Initialize the environment and get first state of the robot
         observation = env.reset()
         state = ''.join(map(str, observation))
+
+        actions = []
 
         # Show on screen the actual situation of the robot
         # env.render()
@@ -73,6 +78,7 @@ if __name__ == '__main__':
             # Pick an action based on the current state
             action = qlearn.chooseAction(state)
             rospy.logdebug("Next action is:%d", action)
+            actions.append(action)
             # Execute the action in the environment and get feedback
             observation, reward, done, info = env.step(action)
 
@@ -103,15 +109,30 @@ if __name__ == '__main__':
             # rospy.sleep(2.0)
         m, s = divmod(int(time.time() - start_time), 60)
         h, m = divmod(m, 60)
+        end_time_episode = time.time()
         rospy.logerr(("EP: " + str(x + 1) + " - [alpha: " + str(round(qlearn.alpha, 2)) + " - gamma: " + str(
             round(qlearn.gamma, 2)) + " - epsilon: " + str(round(qlearn.epsilon, 2)) + "] - Reward: " + str(
             cumulated_reward) + "     Time: %d:%02d:%02d" % (h, m, s)))
 
-    rospy.logwarn(("\n|" + str(nepisodes) + "|" + str(qlearn.alpha) + "|" + str(qlearn.gamma) + "|" + str(
-        initial_epsilon) + "*" + str(epsilon_discount) + "|" + str(highest_reward) + "| PICTURE |"))
+        # save rewards in file, then we can plot that later
+        complete_file_name = os.path.join(outdir, "rewards_execution.txt")
+        f = open(complete_file_name, "a+")
+        f.write("%f\r\n" % (cumulated_reward))
+        f.close()
+
+        # save log output in file
+        complete_file_name = os.path.join(outdir, "log_output_execution.txt")
+        f = open(complete_file_name, "a+")
+        f.write( ("EP: " + str(x + 1) + " - [alpha: " + str(round(qlearn.alpha, 2)) + " - gamma: " + str(
+                round(qlearn.gamma, 2)) + " - epsilon: " + str(round(qlearn.epsilon, 2)) + "] - Reward: " + str(
+                cumulated_reward) + " - Actions:" + str(actions) + " - Duration:" + str(end_time_episode-start_time_episode)
+                + "     Time: %d:%02d:%02d" % (h, m, s) + "\n") )
+        f.close()
 
     l = last_time_steps.tolist()
     l.sort()
+
+    #qlearn.saveQToFile(outdir)
 
     rospy.loginfo("Overall score: {:0.2f}".format(last_time_steps.mean()))
 

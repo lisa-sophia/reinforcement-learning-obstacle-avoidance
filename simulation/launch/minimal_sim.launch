@@ -18,11 +18,11 @@
     <node pkg="actor" type="simulate_actor.py" name="simulate_actor" output="screen">
         <param name="namespace" type="string" value="actor_1" />
         <param name="colour" type="string" value="red" />
-        <param name="start_x" type="double" value="2.5" />
-        <param name="start_y" type="double" value="1.6" />
+        <param name="start_x" type="double" value="3.0" />
+        <param name="start_y" type="double" value="1.7" />
         <param name="start_yaw" type="double" value="-1.57" />
-        <param name="goal_x" type="double" value="2.5" />
-        <param name="goal_y" type="double" value="-1.6" />
+        <param name="goal_x" type="double" value="3.0" />
+        <param name="goal_y" type="double" value="-1.7" />
     </node>
   </group>
 
@@ -30,11 +30,10 @@
     <node pkg="actor" type="simulate_actor.py" name="simulate_actor" output="screen">
         <param name="namespace" type="string" value="actor_2" />
         <param name="colour" type="string" value="blue" />
-        <!--<param name="speed" type="string" value="fast" />-->
-        <param name="start_x" type="double" value="3.5" />
+        <param name="start_x" type="double" value="11.0" />
         <param name="start_y" type="double" value="-1.6" />
         <param name="start_yaw" type="double" value="1.57" />
-        <param name="goal_x" type="double" value="3.5" />
+        <param name="goal_x" type="double" value="11.0" />
         <param name="goal_y" type="double" value="1.6" />
     </node>
   </group>
@@ -43,11 +42,10 @@
     <node pkg="actor" type="simulate_actor.py" name="simulate_actor" output="screen">
         <param name="namespace" type="string" value="actor_3" />
         <param name="colour" type="string" value="green" />
-        <!--<param name="speed" type="string" value="slow" />-->
-        <param name="start_x" type="double" value="8.2" />
+        <param name="start_x" type="double" value="11.0" />
         <param name="start_y" type="double" value="1.6" />
         <param name="start_yaw" type="double" value="-1.57" />
-        <param name="goal_x" type="double" value="8.2" />
+        <param name="goal_x" type="double" value="11.0" />
         <param name="goal_y" type="double" value="-1.6" />
     </node>
   </group>
@@ -55,10 +53,10 @@
   <group ns="actor_4">
     <node pkg="actor" type="simulate_actor.py" name="simulate_actor" output="screen">
         <param name="namespace" type="string" value="actor_4" />
-        <param name="start_x" type="double" value="7.2" />
+        <param name="start_x" type="double" value="11.0" />
         <param name="start_y" type="double" value="-1.6" />
         <param name="start_yaw" type="double" value="1.57" />
-        <param name="goal_x" type="double" value="7.2" />
+        <param name="goal_x" type="double" value="11.0" />
         <param name="goal_y" type="double" value="1.6" />
     </node>
   </group>

@@ -1,0 +1,5 @@
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.65 - Actions:[0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 1, 2, 0] - Duration:-51.866904735565186     Time: 0:00:51
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.8099999999999999 - Actions:[0, 0, 1, 0, 2, 2, 0, 0, 0, 0, 3, 3, 3, 3, 1, 3, 3, 0, 3, 0] - Duration:-46.47975730895996     Time: 0:01:38
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.9 - Actions:[0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0] - Duration:-18.39369225502014     Time: 0:01:56
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.89 - Actions:[0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0] - Duration:-19.312522649765015     Time: 0:02:16
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.725 - Actions:[0, 0, 3, 0, 0, 3, 3, 0, 0, 2, 3, 0, 3, 0, 0, 1] - Duration:-33.87728404998779     Time: 0:02:49

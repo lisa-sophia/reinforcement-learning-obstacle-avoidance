@@ -303,7 +303,7 @@ class TurtleBot3PedestriansEnv(turtlebot3_pedestrians_env.TurtleBot3PedEnv):
 
         if not done:
             if distance_from_pedestrian < self.comfortable_distance:
-                reward = 0.05 * (distance_from_pedestrian - self.comfortable_distance) # was 0.5 * before
+                reward = 0.25 * (distance_from_pedestrian - self.comfortable_distance) # was 0.5 * before
             # we give a small negative reward at each step, to make it more desirable to reach the goal in fewest steps possible
             # minus 1% of reward for reaching the goal
             reward -= 0.01*self.end_episode_points
@@ -314,13 +314,12 @@ class TurtleBot3PedestriansEnv(turtlebot3_pedestrians_env.TurtleBot3PedEnv):
             #    reward += abs(distance_difference/self.desired_point.x)
             #if distance_from_des_point < 1.0:
             #    reward = 0.01/distance_from_des_point
-            
 
         else:
             if self.is_in_desired_position(current_position, epsilon=0.3):
                 reward = self.end_episode_points
             else:
-                reward = -0.25*self.end_episode_points
+                reward = -0.5*self.end_episode_points
 
         rospy.logdebug("reward=" + str(reward))
         self.cumulated_reward += reward

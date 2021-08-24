@@ -8,7 +8,7 @@ import numpy as np
 # load the Q-table
 rospack = rospkg.RosPack()
 pkg_path = rospack.get_path('reinforcement_learning')
-file_dir = pkg_path + '/training_results/06_09/final_q_values.pkl'
+file_dir = pkg_path + '/training_results/final_q_values.pkl'
 with open(file_dir, 'rb') as f:
     q_table = pickle.load(f)
 

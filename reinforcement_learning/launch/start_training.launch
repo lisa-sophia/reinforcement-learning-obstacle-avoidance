@@ -1,4 +1,5 @@
 <launch>
+    <include file="$(find simulation)/launch/minimal_sim.launch" />
     <!-- This version uses the openai_ros environments -->
     <rosparam command="load" file="$(find reinforcement_learning)/config/reinforcement_learning_qlearn_params.yaml" />
     <!-- Launch the training system -->

@@ -1,17 +1,25 @@
 turtlebot3: #namespace
     task_and_robot_environment_name: 'TurtleBot3Pedestrians-v0'
-    #ros_ws_abspath: "/home/user/simulation_ws"
     ros_ws_abspath: "/home/lisa/LiU/vt2021/TDDE05/clean_ws"
-    running_step: 0.04 # amount of time the control will be executed    ## no function
-    pos_step: 0.016     # increment in position for each command    ## no function
+    #ros_ws_abspath: "/home/user/simulation_ws"
     
-    #qlearn parameters
+    #"old" parameters without any function
+    running_step: 0.04  # amount of time the control will be executed 
+    pos_step: 0.016     # increment in position for each command
+    running_step: 0.06 # Time for each step
     alpha: 0.1
-    min_alpha: 0.1
-    max_alpha: 0.25
-    gamma: 0.95 #0.9
-    epsilon: 1.0
-    epsilon_discount: 0.9 #0.997
-    nepisodes: 1000
-    nsteps: 50 #100
-    running_step: 0.06 # Time for each step    ## no function
+
+    #qlearn parameters
+    min_alpha: 0.1   # if no alpha change is desired,
+    max_alpha: 0.18 #0.25 # set min_alpha and max_alpha to same value
+    gamma: 0.95 
+    epsilon: 0.45 #1.0
+    epsilon_discount: 0.35 #0.9 
+    nepisodes: 505
+    nsteps: 50 
+
+    #if training should start from scratch or based off of previous q table:
+    continue_prev_training: True
+
+    #nr. of epsisodes for executing the learnt q table
+    nepisodes_execution: 5
