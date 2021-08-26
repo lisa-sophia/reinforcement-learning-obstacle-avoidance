@@ -29,7 +29,9 @@ class collect_actor_topics:
         self.speed3 = Float32()
         self.speed4 = Float32()
 
-        self.has_changed = [False, False, False, False, False, False, False, False]
+        # bool list if state/speed has updated: state actor 1, speed actor 1, state actor 2, speed actor 2, etc...
+        #self.has_changed = [False, False, False, False, False, False, False, False]
+        self.has_changed = [False, False]
 
     def _state1_callback(self, data):
         self.pose1 = data.pose
@@ -38,33 +40,33 @@ class collect_actor_topics:
 
     def _state2_callback(self, data):
         self.pose2 = data.pose
-        self.has_changed[1] = True
+        self.has_changed[2] = True
         self.publish_all()
 
     def _state3_callback(self, data):
         self.pose3 = data.pose
-        self.has_changed[2] = True
+        self.has_changed[4] = True
         self.publish_all()
 
     def _state4_callback(self, data):
         self.pose4 = data.pose
-        self.has_changed[3] = True
+        self.has_changed[6] = True
         self.publish_all()
 
 
     def _speed1_callback(self, data):
         self.speed1 = data.data
-        self.has_changed[4] = True
+        self.has_changed[1] = True
         self.publish_all()
         
     def _speed2_callback(self, data):
         self.speed2 = data.data
-        self.has_changed[5] = True
+        self.has_changed[3] = True
         self.publish_all()
 
     def _speed3_callback(self, data):
         self.speed3 = data.data
-        self.has_changed[6] = True
+        self.has_changed[5] = True
         self.publish_all()
 
     def _speed4_callback(self, data):
@@ -80,13 +82,14 @@ class collect_actor_topics:
         
         states_msg = geometry_msgs.msg.PoseArray()
         states_msg.poses.append(self.pose1)
-        states_msg.poses.append(self.pose2)
-        states_msg.poses.append(self.pose3)
-        states_msg.poses.append(self.pose4)
+        #states_msg.poses.append(self.pose2)
+        #states_msg.poses.append(self.pose3)
+        #states_msg.poses.append(self.pose4)
         self.actor_states_pub.publish(states_msg)
 
         speeds_msg = Float32MultiArray()
-        speeds_msg.data = [self.speed1, self.speed2, self.speed3, self.speed4]
+        #speeds_msg.data = [self.speed1, self.speed2, self.speed3, self.speed4]
+        speeds_msg.data = [self.speed1]
         self.actor_speeds_pub.publish(speeds_msg)
 
         for changed in self.has_changed:

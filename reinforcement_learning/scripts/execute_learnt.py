@@ -123,16 +123,16 @@ if __name__ == '__main__':
         # save log output in file
         complete_file_name = os.path.join(outdir, "log_output_execution.txt")
         f = open(complete_file_name, "a+")
-        f.write( ("EP: " + str(x + 1) + " - [alpha: " + str(round(qlearn.alpha, 2)) + " - gamma: " + str(
+        f.write(("EP: " + str(x + 1) + " - [alpha: " + str(round(qlearn.alpha, 2)) + " - gamma: " + str(
                 round(qlearn.gamma, 2)) + " - epsilon: " + str(round(qlearn.epsilon, 2)) + "] - Reward: " + str(
-                cumulated_reward) + " - Actions:" + str(actions) + " - Duration:" + str(end_time_episode-start_time_episode)
-                + "     Time: %d:%02d:%02d" % (h, m, s) + "\n") )
+                round(cumulated_reward, 3)) + " - Actions:" + str(actions) + " - Duration:" + str(
+                round(end_time_episode-start_time_episode, 2)) + "     Time: %d:%02d:%02d" % (h, m, s) + "\n"))
         f.close()
 
     l = last_time_steps.tolist()
     l.sort()
 
-    #qlearn.saveQToFile(outdir)
+    qlearn.saveQToFile(outdir)
 
     rospy.loginfo("Overall score: {:0.2f}".format(last_time_steps.mean()))
 

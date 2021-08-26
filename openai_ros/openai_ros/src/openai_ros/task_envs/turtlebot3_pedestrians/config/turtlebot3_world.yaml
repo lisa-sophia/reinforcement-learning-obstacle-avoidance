@@ -22,7 +22,7 @@ turtlebot3: #namespace
     end_episode_points: 1 # Points given when ending an episode
     
     step_size: 0.5 # By how many metres to move the robot at each step (in x or y direction)
-    pedestrian_comfort_zone: 1.0 # radius around humans within which to penalize the state
+    pedestrian_comfort_zone: 1.25 #1.0 # radius around humans within which to penalize the state
 
     desired_pose:
       x: 5.0 #10.0

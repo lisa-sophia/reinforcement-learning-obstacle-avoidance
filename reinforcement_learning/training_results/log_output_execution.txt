@@ -3,3 +3,85 @@ EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.8099999999999999 -
 EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.9 - Actions:[0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0] - Duration:-18.39369225502014     Time: 0:01:56
 EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.89 - Actions:[0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0] - Duration:-19.312522649765015     Time: 0:02:16
 EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.725 - Actions:[0, 0, 3, 0, 0, 3, 3, 0, 0, 2, 3, 0, 3, 0, 0, 1] - Duration:-33.87728404998779     Time: 0:02:49
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.6575703849682212 - Actions:[0, 0, 2, 0, 0, 0, 0, 3, 3, 0, 0, 3, 1, 0] - Duration:34.06708002090454     Time: 0:00:34
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.437078882155695 - Actions:[0, 3, 3, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0] - Duration:22.13547420501709     Time: 0:00:56
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.2480339887498948 - Actions:[0, 0, 3, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0] - Duration:20.68356442451477     Time: 0:01:16
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.28754248593736864 - Actions:[0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0] - Duration:19.467493057250977     Time: 0:01:36
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.45707888215569503 - Actions:[0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0] - Duration:19.31902050971985     Time: 0:01:55
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.7850281539872884 - Actions:[0, 0, 2, 0, 0, 0, 0, 0, 3, 3, 0, 3, 1, 0] - Duration:34.5278754234314     Time: 0:00:34
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.6164495102245979 - Actions:[0, 0, 1, 0, 1, 2, 2, 2, 1, 0, 3, 2, 0, 0, 3, 1, 0, 0, 0, 2] - Duration:64.86100029945374     Time: 0:01:39
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.713224755112299 - Actions:[0, 0, 0, 2, 0, 0, 0, 3, 3, 1, 0, 0, 2, 0, 1] - Duration:42.613319396972656     Time: 0:02:22
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.6968315528622779 - Actions:[0, 1, 1, 3, 0, 3, 0, 3, 0, 2, 2, 2, 0, 0, 3, 0, 1, 0, 0] - Duration:47.96148943901062     Time: 0:03:09
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.6490169943749474 - Actions:[0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0] - Duration:18.72554349899292     Time: 0:03:28
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.5] - Reward: -0.64 - Actions:[0, 0, 2, 0, 0, 0, 0, 3, 1, 0] - Duration:29.267183303833008     Time: 0:00:29
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.5] - Reward: -0.64 - Actions:[0, 0, 0, 2, 0, 0, 0, 3, 1, 0] - Duration:28.10993456840515     Time: 0:00:28
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.5] - Reward: 0.7672135954999579 - Actions:[0, 3, 0, 3, 0, 0, 3, 0, 0, 0, 0, 3, 0, 0] - Duration:23.80007767677307     Time: 0:00:51
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: -0.64 - Actions:[0, 0, 2, 0, 0, 0, 0, 3, 1, 0] - Duration:28.432819604873657     Time: 0:00:28
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: -0.6913932022500211 - Actions:[0, 2, 1, 2, 0, 3, 1, 2, 0, 1, 0, 3, 0, 0, 0] - Duration:51.846988677978516     Time: 0:01:20
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: -0.65 - Actions:[0, 0, 2, 0, 0, 0, 0, 3, 3, 1, 0] - Duration:28.858437061309814     Time: 0:00:28
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: 0.768606797749979 - Actions:[0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 3, 0, 0] - Duration:35.43389081954956     Time: 0:00:35
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: 0.8304101966249684 - Actions:[0, 0, 2, 0, 3, 0, 0, 0, 0, 3, 0, 1, 0, 0] - Duration:30.304948091506958     Time: 0:00:30
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: 0.7540169943749474 - Actions:[0, 3, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0] - Duration:18.494591236114502     Time: 0:00:48
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: 0.7922135954999578 - Actions:[0, 0, 3, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0] - Duration:18.24654221534729     Time: 0:01:07
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: -0.6445898033750316 - Actions:[0, 0, 0, 0, 3, 3, 0, 0, 0] - Duration:13.790321588516235     Time: 0:01:20
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: 0.6404101966249683 - Actions:[0, 1, 1, 0, 0, 3, 0, 3, 2, 3, 2, 1, 2, 2, 0, 0, 1, 0, 0, 2, 3, 0, 0] - Duration:63.30414915084839     Time: 0:02:24
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: 0.8518033988749895 - Actions:[0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1] - Duration:31.14840054512024     Time: 0:00:31
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: 0.8036067977499789 - Actions:[0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 3, 0, 0] - Duration:35.551961183547974     Time: 0:01:06
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: 0.827213595499958 - Actions:[0, 0, 0, 0, 0, 3, 2, 0, 0, 0, 1, 0, 0] - Duration:34.94013071060181     Time: 0:01:41
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: -0.6950000000000001 - Actions:[0, 0, 2, 0, 0, 0, 0, 1, 1, 2, 2, 1, 0] - Duration:45.41002607345581     Time: 0:00:45
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: -0.7531966011250105 - Actions:[0, 2, 0, 3, 3, 3, 1, 3, 2, 1, 2, 0, 1, 2, 0, 0, 0, 3, 1, 0] - Duration:69.27242183685303     Time: 0:01:54
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: -0.64 - Actions:[0, 0, 0, 2, 0, 0, 0, 3, 1, 0] - Duration:27.878379106521606     Time: 0:00:27
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: -0.641393202250021 - Actions:[0, 3, 0, 3, 0, 0, 3, 0, 0, 0] - Duration:16.91957402229309     Time: 0:00:44
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: 0.7072135954999579 - Actions:[0, 0, 1, 0, 2, 0, 1, 2, 2, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 1] - Duration:55.34128022193909     Time: 0:01:40
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.8] - Reward: -0.586393202250021 - Actions:[0, 0, 0, 0, 0, 0, 0] - Duration:14.259401082992554     Time: 0:01:54
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.7936067977499789 - Actions:[0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 3, 2, 0, 3, 1, 2, 3, 0, 1] - Duration:56.87809729576111     Time: 0:00:56
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.8768033988749895 - Actions:[0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0] - Duration:31.932809352874756     Time: 0:00:31
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.63 - Actions:[0, 0, 0, 2, 0, 0, 0, 1, 0] - Duration:27.27997350692749     Time: 0:00:27
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.7154101966249684 - Actions:[0, 0, 1, 0, 1, 0, 2, 3, 2, 0, 0, 2, 0, 0, 3, 1, 0, 0] - Duration:56.22979021072388     Time: 0:01:23
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.758606797749979 - Actions:[0, 0, 2, 0, 3, 0, 0, 0, 3, 1, 0, 0, 3, 0, 0] - Duration:38.27136945724487     Time: 0:02:01
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.8418033988749895 - Actions:[0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1] - Duration:31.950376272201538     Time: 0:00:31
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.822213595499958 - Actions:[0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0] - Duration:19.89212989807129     Time: 0:00:51
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.758606797749979 - Actions:[0, 0, 2, 0, 0, 0, 0, 3, 3, 1, 0, 0, 3, 0, 0] - Duration:35.76339244842529     Time: 0:01:27
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.758606797749979 - Actions:[0, 0, 0, 0, 2, 1, 0, 0, 2, 0, 3, 0, 1, 0, 0] - Duration:46.829302072525024     Time: 0:02:14
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.7172135954999579 - Actions:[0, 0, 0, 0, 0, 3, 3, 2, 0, 3, 3, 1, 3, 2, 0, 0, 1, 0, 0] - Duration:52.207533836364746     Time: 0:03:06
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.5700000000000001 - Actions:[0, 0, 2, 0, 0, 0, 0, 3] - Duration:20.28999948501587     Time: 0:00:20
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.797213595499958 - Actions:[0, 0, 0, 2, 0, 3, 2, 1, 0, 0, 3, 0, 0, 1, 0, 0] - Duration:48.62265992164612     Time: 0:01:08
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.56 - Actions:[0, 0, 2, 0, 0, 0, 0] - Duration:21.046977519989014     Time: 0:01:29
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.5731966011250105 - Actions:[0, 0, 0, 2, 0, 2, 1] - Duration:25.75165367126465     Time: 0:01:55
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.55 - Actions:[0, 3, 3, 0, 0, 0] - Duration:10.387427806854248     Time: 0:02:06
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.768606797749979 - Actions:[0, 0, 2, 0, 0, 0, 0, 3, 1, 0, 0, 3, 0, 0] - Duration:43.82094478607178     Time: 0:00:43
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.6081966011250105 - Actions:[0, 0, 0, 0, 2, 1, 0, 0] - Duration:31.131742000579834     Time: 0:01:14
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.7954101966249685 - Actions:[0, 0, 1, 2, 1, 0, 0, 0, 0, 3, 0, 0, 2, 0, 0] - Duration:55.804606437683105     Time: 0:02:10
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.6804101966249684 - Actions:[0, 0, 3, 0, 0, 3, 1, 2, 2, 0, 0, 3, 3, 1, 0, 0, 3, 0, 0] - Duration:55.212660789489746     Time: 0:03:05
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.738606797749979 - Actions:[0, 0, 0, 2, 3, 1, 2, 0, 0, 0, 3, 1, 0, 0, 3, 0, 0] - Duration:60.98775362968445     Time: 0:04:06
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.8418033988749895 - Actions:[0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1] - Duration:34.67779493331909     Time: 0:00:34
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.7354101966249684 - Actions:[0, 0, 2, 3, 0, 0, 0, 0, 3, 3, 1, 0, 0, 3, 0, 0] - Duration:40.44622826576233     Time: 0:01:15
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.5631966011250105 - Actions:[0, 0, 0, 0, 2, 0] - Duration:20.082164764404297     Time: 0:01:35
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.7454101966249684 - Actions:[0, 1, 1, 3, 2, 2, 0, 0, 1, 3, 3, 0, 0, 0, 3, 0, 0, 0, 2, 0] - Duration:59.23875069618225     Time: 0:02:34
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.67 - Actions:[0, 0, 1, 3, 0, 2, 2, 0, 0, 0, 3, 1, 0] - Duration:38.924320697784424     Time: 0:03:13
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.769 - Actions:[0, 0, 2, 0, 0, 0, 0, 3, 1, 0, 0, 3, 0, 0] - Duration:38.42     Time: 0:00:38
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.785 - Actions:[0, 0, 0, 2, 0, 3, 2, 1, 0, 0, 3, 0, 0, 1, 0, 0] - Duration:46.92     Time: 0:01:25
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.608 - Actions:[0, 0, 0, 0, 3, 0, 0, 0] - Duration:15.45     Time: 0:01:40
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.767 - Actions:[0, 3, 0, 3, 0, 0, 3, 0, 0, 0, 0, 3, 0, 0] - Duration:24.25     Time: 0:02:05
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.769 - Actions:[0, 0, 2, 0, 0, 0, 0, 3, 1, 0, 0, 3, 0, 0] - Duration:37.54     Time: 0:02:42
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.779 - Actions:[0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 3, 0, 0] - Duration:37.91     Time: 0:00:37
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.75 - Actions:[0, 0, 0, 0, 1, 3, 1, 2, 2, 2, 0, 0, 0, 0, 0, 0, 1] - Duration:49.12     Time: 0:01:27
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.804 - Actions:[0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 1, 0, 0] - Duration:36.11     Time: 0:02:03
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.804 - Actions:[0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 3, 0, 1, 0] - Duration:40.93     Time: 0:02:44
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.812 - Actions:[0, 0, 0, 0, 2, 0, 0, 1, 3, 3, 2, 0, 0, 1, 0, 0] - Duration:48.94     Time: 0:03:33
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.769 - Actions:[0, 0, 2, 0, 0, 0, 0, 3, 1, 0, 0, 3, 0, 0] - Duration:37.48     Time: 0:00:37
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.671 - Actions:[0, 0, 0, 3, 2, 0, 3, 2, 1, 0, 0, 3, 1] - Duration:39.71     Time: 0:01:17
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.785 - Actions:[0, 0, 3, 0, 0, 3, 1, 2, 2, 0, 0, 0, 0, 1, 0, 0] - Duration:44.52     Time: 0:02:01
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.633 - Actions:[0, 0, 0, 0, 3, 0, 0, 2] - Duration:17.86     Time: 0:02:19
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.839 - Actions:[0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0] - Duration:36.53     Time: 0:02:56
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.769 - Actions:[0, 0, 2, 0, 0, 0, 0, 3, 1, 0, 0, 3, 0, 0] - Duration:36.79     Time: 0:00:36
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.63 - Actions:[0, 0, 0, 0, 2, 0, 0, 1, 0] - Duration:28.79     Time: 0:01:05
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.807 - Actions:[0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0] - Duration:49.92     Time: 0:01:55
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.626 - Actions:[0, 0, 2, 1, 0, 0, 2, 1, 0, 0, 0] - Duration:40.52     Time: 0:02:36
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.794 - Actions:[0, 3, 0, 0, 0, 0, 0, 2, 0, 3, 0, 1, 0, 0] - Duration:39.73     Time: 0:03:15
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.664 - Actions:[0, 1, 1, 2, 3, 2, 1, 3, 3, 1, 0, 2, 3, 3, 0, 3, 2, 0, 0, 2, 0, 0, 0, 3, 3, 0, 1, 0] - Duration:83.79     Time: 0:01:23
+EP: 2 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.762 - Actions:[0, 0, 0, 3, 2, 0, 3, 2, 1, 0, 0, 3, 0, 0, 0, 0, 1] - Duration:48.11     Time: 0:02:11
+EP: 3 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.563 - Actions:[0, 0, 0, 0, 0, 0] - Duration:15.47     Time: 0:02:27
+EP: 4 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.583 - Actions:[0, 3, 3, 0, 0, 0, 0, 0] - Duration:18.24     Time: 0:02:45
+EP: 5 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: 0.654 - Actions:[0, 3, 3, 0, 0, 0, 0, 3, 3, 2, 0, 3, 1, 0, 0, 3, 3, 0, 0] - Duration:44.27     Time: 0:03:29
+EP: 1 - [alpha: 0.1 - gamma: 0.95 - epsilon: 0.0] - Reward: -0.63 - Actions:[0, 0, 2, 0, 0, 0, 0, 1, 0] - Duration:95.01     Time: 0:01:35

@@ -4,6 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Odometry1
         - /Odometry1/Shape1
         - /TF1/Frames1
       Splitter Ratio: 0.5
@@ -58,9 +59,6 @@ Visualization Manager:
       Name: Marker
       Namespaces:
         actor_1: true
-        actor_2: true
-        actor_3: true
-        actor_4: true
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -118,10 +116,10 @@ Visualization Manager:
         Axes Length: 1
         Axes Radius: 0.10000000149011612
         Color: 255; 254; 47
-        Head Length: 0.07999999821186066
-        Head Radius: 0.07000000029802322
-        Shaft Length: 0.4000000059604645
-        Shaft Radius: 0.019999999552965164
+        Head Length: 0
+        Head Radius: 0
+        Shaft Length: 0.07000000029802322
+        Shaft Radius: 0.07000000029802322
         Value: Arrow
       Topic: /odom
       Unreliable: false
@@ -218,7 +216,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 9.628100395202637
+      Distance: 11.732161521911621
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -226,9 +224,9 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 2.118506669998169
-        Y: -0.8408113121986389
-        Z: -2.0332484245300293
+        X: 2.3002898693084717
+        Y: -0.9175312519073486
+        Z: -2.0330660343170166
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
@@ -236,7 +234,7 @@ Visualization Manager:
       Near Clip Distance: 0.009999999776482582
       Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
-      Yaw: 3.130401849746704
+      Yaw: 3.145402193069458
     Saved: ~
 Window Geometry:
   Displays:

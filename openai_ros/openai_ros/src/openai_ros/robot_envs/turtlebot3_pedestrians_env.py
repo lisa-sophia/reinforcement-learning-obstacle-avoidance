@@ -207,8 +207,7 @@ class TurtleBot3PedEnv(robot_gazebo_env.RobotGazeboEnv):
 
     def _actor_states_callback(self, data):
         # the goal is in positive x-direction of the robot, so we only check the pedestrians in front of us
-        # goal is at (10,0), start position is (0,0), pedestrians are in-between
-        # -> improve to eucliden distance?
+        # goal is at (5,0), start position is (0,0), pedestrians are in-between
         self.closest_ped = None
         self.closest_ped_state.position.x = None
         self.closest_ped_state.position.y = None
@@ -232,7 +231,7 @@ class TurtleBot3PedEnv(robot_gazebo_env.RobotGazeboEnv):
             actor_x = p.position.x
             actor_y = p.position.y
             dist = sqrt(pow(actor_x-curr_x, 2) + pow(actor_y-curr_y, 2))
-            if dist < min_dist: #and actor_x >= (curr_x - 0.1):
+            if dist < min_dist: #and actor_x > (curr_x - 1): # this could be a future improvement
                 self.closest_ped = i
                 min_dist = dist
                 self.closest_ped_state = p
@@ -368,7 +367,7 @@ class TurtleBot3PedEnv(robot_gazebo_env.RobotGazeboEnv):
         :param desired_yaw: 
         :return:
         """       
-        yaw_epsilon = 1.0 # in degrees, not rad
+        yaw_epsilon = 0.5 # in degrees, not rad
         position_epsilon = 0.05 # in metres
         rate = rospy.Rate(10) # 10 Hz
 
@@ -401,7 +400,7 @@ class TurtleBot3PedEnv(robot_gazebo_env.RobotGazeboEnv):
                 cmd_vel_value.linear.x = 0.0
                 cmd_vel_value.angular.z = -1 * numpy.sign(delta_yaw) * 1.0
                 if abs(delta_yaw) < 10:
-                    cmd_vel_value.angular.z = -1 * numpy.sign(delta_yaw) * 0.3
+                    cmd_vel_value.angular.z = -1 * numpy.sign(delta_yaw) * 0.2
                 rospy.logdebug("TurtleBot3 Base Twist Cmd>>" + str(cmd_vel_value))
                 self._check_publishers_connection()
                 self._cmd_vel_pub.publish(cmd_vel_value)
@@ -448,7 +447,7 @@ class TurtleBot3PedEnv(robot_gazebo_env.RobotGazeboEnv):
             else:
                 rospy.loginfo("Not achieved position change yet, keep going.")
                 cmd_vel_value = Twist()
-                cmd_vel_value.linear.x = 0.4
+                cmd_vel_value.linear.x = 0.3
                 cmd_vel_value.angular.z = 0.0
                 rospy.logdebug("TurtleBot3 Base Twist Cmd>>" + str(cmd_vel_value))
                 self._check_publishers_connection()

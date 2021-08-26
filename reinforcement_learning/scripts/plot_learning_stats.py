@@ -128,7 +128,7 @@ plt.ylabel('Reward')
 plt.title('Rewards per epsiode')
 
 # average reward over nr. of episodes:
-sample_size = 25
+sample_size = 50
 samples = int(len(rewards)/sample_size)
 episodes = []
 averaged = []

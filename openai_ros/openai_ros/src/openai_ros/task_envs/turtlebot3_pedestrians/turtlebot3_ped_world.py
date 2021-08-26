@@ -12,6 +12,7 @@ import tf
 import geometry_msgs
 import math
 
+
 class TurtleBot3PedestriansEnv(turtlebot3_pedestrians_env.TurtleBot3PedEnv):
     def __init__(self):
         """
@@ -213,16 +214,17 @@ class TurtleBot3PedestriansEnv(turtlebot3_pedestrians_env.TurtleBot3PedEnv):
             ped_yaw   = int(99)
         else:
             # save relative pedestrian coordinates
-            ped_x     = ped_x - x_position
-            #ped_x     = round(ped_x, 1)
+            #ped_x     = ped_x - x_position
+            ped_x     = self.round_to_base(ped_x, 0.5) - self.round_to_base(x_position, 0.5)
             ped_x     = self.round_to_base(ped_x, 0.5)
-            ped_y     = ped_y - y_position
-            #ped_y     = round(ped_y, 1)
+            #ped_y     = ped_y - y_position
+            ped_y     = self.round_to_base(ped_y, 0.5) - self.round_to_base(y_position, 0.5)
             ped_y     = self.round_to_base(ped_y, 0.5)
             ped_speed = round(ped_speed, 3)
             ped_yaw   = int(ped_yaw)
-
         pedestrian_array = [ped_x, ped_y, ped_yaw, ped_speed]
+        #rospy.logerr("Believed actor position: " + str(ped_x + x_position) + ", " + str(ped_y + y_position))
+        #rospy.logerr("Actual actor position: " + str(ped_state.position.x) + ", " + str(ped_state.position.y))
 
         #observations = discretized_laser_obs + odometry_array + pedestrian_array
         # we remove the laser scan data, since the x-y position should be enough (the robot will then learn where the walls are)
@@ -232,7 +234,7 @@ class TurtleBot3PedestriansEnv(turtlebot3_pedestrians_env.TurtleBot3PedEnv):
         rospy.logdebug("END Get Observation ==>")
         return observations
 
-    
+
     def _is_done(self, observations):
 
         if self._episode_done:
@@ -272,7 +274,8 @@ class TurtleBot3PedestriansEnv(turtlebot3_pedestrians_env.TurtleBot3PedEnv):
                 # We see if we have crashed with the closest pedestrian
                 distance_from_pedestrian = self.get_distance_from_pedestrian(current_position, observations[-4:])
                 rospy.logwarn("DISTANCE TO CLOSEST PEDESTRIAN = " + str(distance_from_pedestrian))
-                if (distance_from_pedestrian < self.step_size): #0.25):
+                #if (distance_from_pedestrian < self.step_size):
+                if (distance_from_pedestrian < 2*self.step_size):
                     rospy.logerr("TurtleBot has crashed with pedestrian ==> distance was " + str(distance_from_pedestrian))
                     self._episode_done = True
             
@@ -303,7 +306,7 @@ class TurtleBot3PedestriansEnv(turtlebot3_pedestrians_env.TurtleBot3PedEnv):
 
         if not done:
             if distance_from_pedestrian < self.comfortable_distance:
-                reward = 0.25 * (distance_from_pedestrian - self.comfortable_distance) # was 0.5 * before
+                reward = 0.1 * (distance_from_pedestrian - self.comfortable_distance) 
             # we give a small negative reward at each step, to make it more desirable to reach the goal in fewest steps possible
             # minus 1% of reward for reaching the goal
             reward -= 0.01*self.end_episode_points
