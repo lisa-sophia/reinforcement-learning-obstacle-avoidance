@@ -11,10 +11,10 @@ turtlebot3: #namespace
 
     #qlearn parameters
     min_alpha: 0.1   # if no alpha change is desired,
-    max_alpha: 0.18 #0.25 # set min_alpha and max_alpha to same value
+    max_alpha: 0.25  # set min_alpha and max_alpha to same value
     gamma: 0.95 
-    epsilon: 0.45 #1.0
-    epsilon_discount: 0.35 #0.9 
+    epsilon: 1.0
+    epsilon_discount: 0.9 
     nepisodes: 505
     nsteps: 50 
 
