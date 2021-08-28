@@ -1,0 +1,99 @@
+<launch>
+
+  <!-- GAZEBO WORLD -->
+  <arg name="world" default="corridor_reinforcement_learning"/>
+  <!--arg name="world" default="corridor_small"/>-->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find simulation)/worlds/$(arg world).world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="false"/> 
+    <arg name="debug" value="false"/>
+    <arg name="headless" value="true"/>
+  </include>
+
+  <!-- SPAWN THE ROBOT -->
+  <!-- model possibilites: burger, waffle, waffle_pi -->
+  <arg name="model" default="waffle"/>
+  <arg name="agent"  default="agent"/>
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+  
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro"/>
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" respawn="false"
+    args="-urdf -model $(arg agent) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -Y $(arg yaw) -param robot_description" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+      <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+  <!-- MAP SERVER -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find simulation)/maps/corridor_small2.yaml"/>
+
+  <!-- AMCL -->
+  <include file="$(find turtlebot3_navigation)/launch/amcl.launch.xml"/>
+
+  <!-- MOVE_BASE -->
+  <arg name="cmd_vel_topic" default="/cmd_vel_move_base" />
+  <arg name="odom_topic" default="odom" />
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+
+    <rosparam file="$(find turtlebot3_navigation)/param/costmap_common_params_$(arg model).yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find turtlebot3_navigation)/param/costmap_common_params_$(arg model).yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find turtlebot3_navigation)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/param/move_base_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/param/dwa_local_planner_params.yaml" command="load" />
+
+    <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
+  </node>
+
+  <!-- INVERT ANGULAR CMD_VEL -->
+  <node pkg="simulation" type="invert_cmd_vel.py" name="invert_cmd_vel" output="screen"/>
+
+  <!-- ACTORS (PEDESTRIANS) -->
+  <group ns="actor_1">
+    <node pkg="actor" type="simulate_actor.py" name="simulate_actor" output="screen">
+        <param name="namespace" type="string" value="actor_1" />
+        <param name="colour" type="string" value="red" />
+        <param name="start_x" type="double" value="3.0" />
+        <param name="start_y" type="double" value="1.7" />
+        <param name="start_yaw" type="double" value="-1.57" />
+        <param name="goal_x" type="double" value="3.0" />
+        <param name="goal_y" type="double" value="-1.7" />
+    </node>
+
+    <arg name="model_act" default="waffle2"/>
+    <arg name="name" default="pedestrian"/>
+    <arg name="x_act" default="3.0"/>
+    <arg name="y_act" default="1.5"/>
+    <arg name="z_act" default="0.0"/>
+    <arg name="yaw_act" default="-1.57"/>
+  
+    <param name="robot_description_act" 
+      command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model_act).urdf.xacro"/>
+
+    <node name="spawn_urdf_act" pkg="gazebo_ros" type="spawn_model" output="screen" respawn="false"
+      args="-urdf -model $(arg name) -x $(arg x_act) -y $(arg y_act) -z $(arg z_act) -Y $(arg yaw_act) -param robot_description_act" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="pedestrian_state_publisher" output="screen">
+      <param name="publish_frequency" type="double" value="50.0" />
+    </node>
+    
+    <node pkg="actor" type="control_actor.py" name="control_actor" output="screen">
+        <param name="start_y" type="double" value="1.7" />
+        <param name="goal_y" type="double" value="-1.7" />
+    </node>
+
+  </group>
+
+  <!-- RVIZ -->
+  <include file="$(find simulation)/launch/rviz.launch"/>
+
+</launch>

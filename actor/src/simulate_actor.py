@@ -85,26 +85,6 @@ class simulate_actor:
         msg.data = self.step_size
         self.speed_update.publish(msg)
 
-        """try:
-            trans = self.tfBuffer.lookup_transform('map', self.agent_frame, rospy.Time())
-            self.publish_pose.header.stamp = rospy.get_rostime()
-            self.publish_pose.pose = copy.deepcopy(self.current_pose.pose)
-            self.publish_pose.pose.position.x += trans.transform.translation.x
-            self.publish_pose.pose.position.y += trans.transform.translation.y
-            self.publish_pose.pose.position.z += trans.transform.translation.z
-            rotation = (trans.transform.rotation.x, trans.transform.rotation.y, 
-                        trans.transform.rotation.z, trans.transform.rotation.w)
-            original = (self.publish_pose.pose.orientation.x, self.publish_pose.pose.orientation.y, 
-                        self.publish_pose.pose.orientation.z, self.publish_pose.pose.orientation.w)
-            orientation = tf.transformations.quaternion_multiply(rotation, original)
-            self.publish_pose.pose.orientation.x = trans.transform.rotation.x #orientation[0]
-            self.publish_pose.pose.orientation.y = trans.transform.rotation.y #orientation[1]
-            self.publish_pose.pose.orientation.z = trans.transform.rotation.z #orientation[2]
-            self.publish_pose.pose.orientation.w = trans.transform.rotation.w #orientation[3]
-            self.state_update.publish(self.publish_pose)
-        except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
-            rospy.logdebug("No TF from map to agent frame available")"""
-
         self.current_pose.header.stamp = rospy.get_rostime()
         self.state_update.publish(self.current_pose)
         self.publish_rviz_marker()
@@ -143,10 +123,6 @@ class simulate_actor:
         marker.pose.position.z  = 0.25
         marker.pose.orientation = self.current_pose.pose.orientation
         marker.color = self.set_marker_colour()
-        #marker.header.frame_id  = self.agent_frame
-        #marker.pose.position.x  = self.publish_pose.pose.position.x  
-        #marker.pose.position.y  = self.publish_pose.pose.position.y  
-        #marker.pose.orientation = self.publish_pose.pose.orientation
         self.marker_pub.publish(marker)
 
     def set_marker_colour(self):
